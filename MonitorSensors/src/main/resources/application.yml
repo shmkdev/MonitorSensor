@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/monitorsensors
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    properties.hibernate:
+      show_sql: true
+      format_sql: true
+      hbm2ddl.auto: validate
+    open-in-view: false
+
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: ADMINISTRATOR
+    additional-users:
+      - name: user
+        password: user
+        roles: VIEWER
+
+jwt:
+  secret: your-very-long-and-secure-secret-key-32-bytes
+  expiration: 3600000
